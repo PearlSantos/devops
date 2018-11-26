@@ -15,8 +15,8 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- script: ls
-  displayName: 'See what's inside
+- script: pwd
+  displayName: 'See what's inside'
 # - script: ls
 #   displayName: 'See what's inside'
 
