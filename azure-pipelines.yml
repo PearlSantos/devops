@@ -10,7 +10,12 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: ls $(Agent.BuildDirectory)
-  displayName: 'See what's inside a build directory'
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- script: ls 
+  displayName: 'See what's inside
 
 
