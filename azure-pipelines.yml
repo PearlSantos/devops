@@ -16,6 +16,6 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: ls 
-  displayName: 'See what's inside
+  displayName: 'See what's inside'
 
 
