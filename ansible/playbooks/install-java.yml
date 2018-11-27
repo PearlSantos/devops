@@ -1,0 +1,10 @@
+---
+- name: Install java
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Install Latest Java Release
+    yum:
+      name: java
+      state: present

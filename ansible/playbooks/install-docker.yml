@@ -1,0 +1,35 @@
+---
+- name: Install Docker
+  hosts: vm
+  become: true
+
+  tasks:
+  - name: Install yum-utils
+    yum:
+      name: yum-utils
+      state: present
+  
+  - name: Install device-mapper-persistent-data
+    yum:
+      name: device-mapper-persistent-data
+      state: present
+  
+  - name: Install lvm2
+    yum:
+      name: lvm2
+      state: present
+
+  - name: Add Docker Repo
+    command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    become: true
+    become_user: root
+
+  - name: Install Docker (Version 17)
+    yum:
+      name: docker-ce-17.12.1.ce-1.el7.centos
+      state: present
+
+  - name: Start Docker
+    command: systemctl start docker
+    become: true
+    become_user: root
