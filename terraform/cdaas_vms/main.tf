@@ -53,4 +53,8 @@ module "sample_vm" {
     role              = "sample"
     shutdown_weekends = "true"
   }
+
+  output "public_ip_address" {
+    value = "${module.sample_vm.virtual_machine_name}0-ip.ip_address"
+  }
 }
