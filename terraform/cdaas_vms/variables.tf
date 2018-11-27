@@ -20,7 +20,7 @@ variable "ssh_key" {
 
 variable "resource_group_name" {
   description = "Azure Resource Group Name"
-  default     = "CDAASAsiaPOC"
+  default     = "CDAASAsiaPOC_2"
 }
 
 variable "cidr" {
