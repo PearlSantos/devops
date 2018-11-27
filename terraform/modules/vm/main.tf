@@ -39,7 +39,7 @@ resource "azurerm_network_interface" "default" {
 
 resource "azurerm_virtual_machine" "default" {
   count                         = "${var.count}"
-  name                          = "${var.virtual_machine_name}_${count.index}"
+  name                          = "${var.virtual_machine_name}${count.index}"
   location                      = "${var.azure_location}"
   resource_group_name           = "${var.resource_group_name}"
   network_interface_ids         = ["${azurerm_network_interface.default.*.id[count.index]}"]

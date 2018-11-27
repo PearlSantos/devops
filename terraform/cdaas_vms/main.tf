@@ -56,7 +56,7 @@ module "sample_vm" {
 }
 
 data "azurerm_public_ip" "sample_vm_ip" {
-  name                = "${module.sample_vm.virtual_machine_name}0-ip"
+  name                = "${module.sample_vm.name}-ip"
   resource_group_name = "${module.resource_group.name}"
 }
 
