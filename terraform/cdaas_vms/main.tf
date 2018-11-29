@@ -40,6 +40,7 @@ module "sample_vm" {
   resource_group_name   = "${module.resource_group.name}"
   cidr_subnet           = "${var.cidr_subnet}"
   subnet_id             = "${module.subnet.subnet_id}"
+  security_rule         = "${var.security_rule_sample}"
 
   vm_size           = "Standard_DS3_v2"
   managed_disk_type = "Standard_LRS"

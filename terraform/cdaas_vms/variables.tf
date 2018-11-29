@@ -44,7 +44,7 @@ variable "agent_ip" {
   description = "Public IP of IBSS Manila Network"
 }
 
-variable "security_rule" {
+variable "security_rule_sample" {
   description = "Array of security group rules."
 
   default = [{
