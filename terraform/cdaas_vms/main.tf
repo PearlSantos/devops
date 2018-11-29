@@ -57,8 +57,8 @@ module "sample_vm" {
   managed_disk_type = "Standard_LRS"
 
   virtual_machine_name = "${var.sample_vm_name}"
-  computer_name        = "cdaas-asia-sample-vm-test"
-  domain_name_label    = "cdaas-asia-sample-vm-test"
+  computer_name        = "cdaas-asia-sample-pipeline-vm-test"
+  domain_name_label    = "cdaas-asia-sample-pipeline-vm-test"
 
   tags = {
     app               = "cdaas-asia-vm"
