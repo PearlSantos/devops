@@ -54,12 +54,3 @@ module "sample_vm" {
     shutdown_weekends = "true"
   }
 }
-
-data "azurerm_public_ip" "sample_vm_ip" {
-  name                = "${var.sample_vm_name}0-ip"
-  resource_group_name = "${module.resource_group.name}"
-}
-
-output "public_ip_address" {
-  value = "${data.azurerm_public_ip.sample_vm_ip.ip_address}"
-}
