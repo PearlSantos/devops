@@ -40,7 +40,18 @@ module "sample_vm" {
   resource_group_name   = "${module.resource_group.name}"
   cidr_subnet           = "${var.cidr_subnet}"
   subnet_id             = "${module.subnet.subnet_id}"
-  security_rule         = "${var.security_rule_sample}"
+
+  security_rule = [{
+    name                       = "AllowSSH"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefixes    = ["${var.ibss_manila_public_ip}", "${var.agent_ip}"]
+    destination_address_prefix = "*"
+  }]
 
   vm_size           = "Standard_DS3_v2"
   managed_disk_type = "Standard_LRS"

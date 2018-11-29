@@ -44,18 +44,20 @@ variable "agent_ip" {
   description = "Public IP of IBSS Manila Network"
 }
 
-variable "security_rule_sample" {
-  description = "Array of security group rules."
+# variable "security_rule_sample" {
+#   description = "Array of security group rules."
 
-  default = [{
-    name                       = "AllowSSH"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "22"
-    source_address_prefixes    = ["${var.ibss_manila_public_ip}", "${var.agent_ip}"]
-    destination_address_prefix = "*"
-  }]
-}
+
+#   default = [{
+#     name                       = "AllowSSH"
+#     priority                   = 100
+#     direction                  = "Inbound"
+#     access                     = "Allow"
+#     protocol                   = "Tcp"
+#     source_port_range          = "*"
+#     destination_port_range     = "22"
+#     source_address_prefixes    = ["${var.ibss_manila_public_ip}", "${var.agent_ip}"]
+#     destination_address_prefix = "*"
+#   }]
+# }
+

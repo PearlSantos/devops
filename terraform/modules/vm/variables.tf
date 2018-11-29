@@ -56,24 +56,8 @@ variable "managed_disk_type" {
   default     = "Premium_LRS"
 }
 
-variable "ibss_manila_public_ip" {
-  description = "Public IP of IBSS Manila Network"
-}
-
 variable "security_rule" {
   description = "Array of security group rules."
-
-  default = [{
-    name                       = "AllowSSH"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "22"
-    source_address_prefix      = "${var.ibss_manila_public_ip}"
-    destination_address_prefix = "*"
-  }]
 }
 
 variable "computer_name" {
