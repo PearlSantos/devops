@@ -58,6 +58,18 @@ variable "managed_disk_type" {
 
 variable "security_rule" {
   description = "Array of security group rules."
+
+  default = [{
+    name                       = "AllowSSH"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }]
 }
 
 variable "computer_name" {
