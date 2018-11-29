@@ -25,7 +25,7 @@ variable "resource_group_name" {
 
 variable "sample_vm_name" {
   description = "Name of sample VM"
-  default     = "CDAASAsiaPipelineSampleVM"
+  default     = "CDAASAsiaPipelineVM"
 }
 
 variable "cidr" {
