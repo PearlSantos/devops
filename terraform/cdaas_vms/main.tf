@@ -44,7 +44,7 @@ module "sample_vm" {
   vm_size           = "Standard_DS3_v2"
   managed_disk_type = "Standard_LRS"
 
-  virtual_machine_name = "CDAASAsiaPipelineSampleVM"
+  virtual_machine_name = "${var.sample_vm_name}"
   computer_name        = "cdaas-asia-sample-vm-test"
   domain_name_label    = "cdaas-asia-sample-vm-test"
 
@@ -56,7 +56,7 @@ module "sample_vm" {
 }
 
 data "azurerm_public_ip" "sample_vm_ip" {
-  name                = "${module.sample_vm.name}-ip"
+  name                = "${var.sample_vm_name}-ip"
   resource_group_name = "${module.resource_group.name}"
 }
 

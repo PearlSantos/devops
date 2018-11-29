@@ -23,6 +23,11 @@ variable "resource_group_name" {
   default     = "CDAASAsiaPOC_2"
 }
 
+variable "sample_vm_name" {
+  description = "Name of sample VM"
+  default     = "CDAASAsiaPipelineSampleVM"
+}
+
 variable "cidr" {
   description = "CIDR range of the resource group"
 }
