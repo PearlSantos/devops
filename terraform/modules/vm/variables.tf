@@ -47,12 +47,17 @@ variable "virtual_machine_name" {
 variable "vm_size" {
   description = "Azure VM type"
   default     = "Standard_B2s"
+
   #default     = "Standard_D2s_v3"
 }
 
 variable "managed_disk_type" {
   description = "Standard or Premium managed disk type"
   default     = "Premium_LRS"
+}
+
+variable "ibss_manila_public_ip" {
+  description = "Public IP of IBSS Manila Network"
 }
 
 variable "security_rule" {
@@ -66,7 +71,7 @@ variable "security_rule" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "210.213.248.78/32"
+    source_address_prefix      = "${var.ibss_manila_public_ip}"
     destination_address_prefix = "*"
   }]
 }

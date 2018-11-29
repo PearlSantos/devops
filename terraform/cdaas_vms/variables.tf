@@ -20,7 +20,7 @@ variable "ssh_key" {
 
 variable "resource_group_name" {
   description = "Azure Resource Group Name"
-  default     = "CDAASAsiaPOC_2"
+  default     = "CDAASAsiaSampleRG"
 }
 
 variable "sample_vm_name" {
@@ -34,4 +34,28 @@ variable "cidr" {
 
 variable "cidr_subnet" {
   description = "CIDR range of the subnet"
+}
+
+variable "ibss_manila_public_ip" {
+  description = "Public IP of IBSS Manila Network"
+}
+
+variable "agent_ip" {
+  description = "Public IP of IBSS Manila Network"
+}
+
+variable "security_rule" {
+  description = "Array of security group rules."
+
+  default = [{
+    name                       = "AllowSSH"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefixes    = ["${var.ibss_manila_public_ip}", "${var.agent_ip}"]
+    destination_address_prefix = "*"
+  }]
 }
