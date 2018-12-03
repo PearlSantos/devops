@@ -22,8 +22,8 @@ variable "resource_group_name" {
   description = "Azure Resource Group Name"
 }
 
-variable "sample_vm_name" {
-  description = "Name of sample VM"
+variable "vm_name" {
+  description = "Name ofVM"
 }
 
 variable "cidr" {
