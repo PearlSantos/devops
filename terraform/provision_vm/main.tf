@@ -23,9 +23,9 @@ module "cdaas_vm" {
   azure_client_secret   = "${var.azure_client_secret}"
   azure_tenant_id       = "${var.azure_tenant_id}"
   ssh_key               = "${var.ssh_key}"
-  resource_group_name   = "${module.resource_group.name}"
+  resource_group_name   = "${data.azurerm_virtual_network.vnet.resource_group_name}"
   cidr_subnet           = "${var.cidr_subnet}"
-  subnet_id             = "${module.subnet.subnet_id}"
+  subnet_id             = "${data.azurerm_subnet.subnet.id}"
 
   security_rule = [{
     name                       = "AllowSSH"
@@ -42,9 +42,9 @@ module "cdaas_vm" {
   vm_size           = "Standard_DS3_v2"
   managed_disk_type = "Standard_LRS"
 
-  virtual_machine_name = "${var.sample_vm_name}"
-  computer_name        = "cdaas-asia-sample-pipeline-vm-test"
-  domain_name_label    = "cdaas-asia-sample-pipeline-vm-test"
+  virtual_machine_name = "${var.vm_name}"
+  computer_name        = "${var.vm_name}"
+  domain_name_label    = "${var.vm_name}"
 
   tags = {
     app               = "cdaas-asia-vm"

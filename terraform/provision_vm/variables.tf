@@ -33,3 +33,11 @@ variable "cidr_subnet" {
 variable "vm_name" {
   description = "Name of the VM"
 }
+
+variable "ibss_manila_public_ip" {
+  description = "Public IP of IBSS Manila Network"
+}
+
+variable "agent_ip" {
+  description = "Public IP of IBSS Manila Network"
+}
