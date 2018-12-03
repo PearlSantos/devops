@@ -6,12 +6,12 @@ provider "azurerm" {
 }
 
 data "azurerm_virtual_network" "vnet" {
-  name                = "openshiftvnet"
-  resource_group_name = "ingasiabenedict"
+  name                = "${var.resource_group_name}-vnet"
+  resource_group_name = "${var.resource_group_name}"
 }
 
 data "azurerm_subnet" "subnet" {
-  name                 = "mastersubnet"
+  name                 = "${var.resource_group_name}-subnet"
   resource_group_name  = "${data.azurerm_virtual_network.vnet.resource_group_name}"
   virtual_network_name = "${data.azurerm_virtual_network.vnet.name}"
 }
