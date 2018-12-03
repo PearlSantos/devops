@@ -20,12 +20,10 @@ variable "ssh_key" {
 
 variable "resource_group_name" {
   description = "Azure Resource Group Name"
-  default     = "CDAASAsiaSampleRG"
 }
 
 variable "sample_vm_name" {
   description = "Name of sample VM"
-  default     = "CDAASAsiaPipelineVM"
 }
 
 variable "cidr" {
