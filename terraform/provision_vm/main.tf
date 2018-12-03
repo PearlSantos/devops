@@ -44,7 +44,7 @@ module "cdaas_vm" {
 
   virtual_machine_name = "${var.vm_name}"
   computer_name        = "${var.vm_name}"
-  domain_name_label    = "${var.vm_name}"
+  domain_name_label    = "${lower(var.vm_name)}"
 
   tags = {
     app               = "cdaas-asia-vm"
