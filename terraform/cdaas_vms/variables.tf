@@ -20,7 +20,12 @@ variable "ssh_key" {
 
 variable "resource_group_name" {
   description = "Azure Resource Group Name"
-  default     = "CDAASAsiaPOC"
+  default     = "CDAASAsiaSampleRG"
+}
+
+variable "sample_vm_name" {
+  description = "Name of sample VM"
+  default     = "CDAASAsiaPipelineVM"
 }
 
 variable "cidr" {
@@ -29,4 +34,12 @@ variable "cidr" {
 
 variable "cidr_subnet" {
   description = "CIDR range of the subnet"
+}
+
+variable "ibss_manila_public_ip" {
+  description = "Public IP of IBSS Manila Network"
+}
+
+variable "agent_ip" {
+  description = "Public IP of IBSS Manila Network"
 }

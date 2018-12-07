@@ -41,12 +41,24 @@ module "sample_vm" {
   cidr_subnet           = "${var.cidr_subnet}"
   subnet_id             = "${module.subnet.subnet_id}"
 
+  security_rule = [{
+    name                       = "AllowSSH"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefixes    = ["${var.ibss_manila_public_ip}", "${var.agent_ip}"]
+    destination_address_prefix = "*"
+  }]
+
   vm_size           = "Standard_DS3_v2"
   managed_disk_type = "Standard_LRS"
 
-  virtual_machine_name = "CDAASAsiaSampleVM"
-  computer_name        = "cdaas-asia-sample-vm"
-  domain_name_label    = "cdaas-asia-sample-vm"
+  virtual_machine_name = "${var.sample_vm_name}"
+  computer_name        = "cdaas-asia-sample-pipeline-vm-test"
+  domain_name_label    = "cdaas-asia-sample-pipeline-vm-test"
 
   tags = {
     app               = "cdaas-asia-vm"

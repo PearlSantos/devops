@@ -1,0 +1,60 @@
+{
+  "apiVersion": "vlabs",
+  "properties": {
+    "orchestratorProfile": {
+      "orchestratorType": "Kubernetes",
+      "orchestratorVersion": "1.9.9",
+      "kubernetesConfig": {
+        "serviceCidr": "${service_cidr}",
+        "dnsServiceIP": "${dns_service_ip}",
+        "dockerEngineVersion": "17.05.*",
+        "enableRbac": true,
+        "maxPods": 40,
+        "apiServerConfig": {
+          "--admission-control": "ServiceAccount,ResourceQuota"
+        },
+        "addons": [
+          {
+            "name": "kubernetes-dashboard",
+            "enabled" : true
+          }
+        ]
+      }
+    },
+    "masterProfile": {
+      "count": ${master_vm_count},
+      "dnsPrefix": "${dns_prefix}",
+      "vmSize": "${vm_size_master}",
+      "vnetSubnetId": "${subnet_id_master}",
+      "firstConsecutiveStaticIP": "${first_master_ip}",
+      "vnetCidr": "${vnet_cidr}"
+    },
+    "agentPoolProfiles": [
+      {
+        "name": "agentdefault",
+        "count": ${pool_vm_count},
+        "vmSize": "${vm_size_agent}",
+        "vnetSubnetId": "${subnet_id_master}",
+        "storageProfile" : "ManagedDisks",
+        "availabilityProfile": "AvailabilitySet",
+        "customNodeLabels": {
+          "nodeType": "default"
+        }
+      }
+    ],
+    "linuxProfile": {
+      "adminUsername": "${admin_user}",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "${ssh_key}"
+          }
+        ]
+      }
+    },
+    "servicePrincipalProfile": {
+      "clientId": "${service_principal_client_id}",
+      "secret": "${service_principal_client_secret}"
+    }
+  }
+}
